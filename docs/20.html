@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 20: Tránh những khuyến khích lầm lạc - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>Chương 20: Tránh phần thưởng ảo</strong></p>
+<p>Nhiều người nghiện rượu bia cố gắng thoát ra bằng ý chí, và để tự thúc ép bản thân, họ dựng lên những “phần thưởng” trong tương lai. Ví dụ quen thuộc nhất là tự hứa: nếu nhịn uống được một tháng thì sẽ tự thưởng cho mình một chuyến du lịch, một món đồ đắt tiền, hay một buổi xả láng. Nghe có vẻ hợp lý, nhưng trên thực tế đây là cách làm phản tác dụng. Bất kỳ ai còn chút lòng tự trọng đều sẽ thấy việc phải “nhịn khổ” rồi tự thưởng cho mình là một sự sỉ nhục. Thà cứ uống đều đều còn hơn sống trong trạng thái chờ đợi phần thưởng.</p>
+<p>Cách tiếp cận này gieo nghi ngờ vào đầu người nghiện ngay từ đầu. Họ không chỉ phải “kiêng” trong một khoảng thời gian dài, mà còn không chắc liệu quãng thời gian đó có đáng sống hay không. Chỗ dựa tinh thần duy nhất của họ đã bị tước đi. Cảm giác hy sinh vì thế tăng lên, và rượu bia — nghịch lý thay — lại càng trở nên quý giá hơn.</p>
+<p>Những “phần thưởng ảo” khác thường xuất hiện dưới nhiều hình thức:</p>
+<p>– Tôi sẽ dừng uống để buộc bản thân phải sống lành mạnh hơn, giao tiếp tốt hơn, và tận hưởng cuộc sống thật.
+– Tôi sẽ dừng uống để giải phóng tiềm năng, làm việc hiệu quả hơn, vượt trội hơn người khác.
+– Tôi sẽ dừng uống để không còn “đốt” năng lượng và thời gian vào rượu bia, mà tập trung xây dựng tương lai.</p>
+<p>Đúng, đó đều là những điều <em>có thể</em> xảy ra. Nhưng hãy nhìn thẳng vào thực tế. Nếu bạn đạt được chúng, khi cảm giác mới mẻ qua đi, bạn vẫn sẽ thấy trống rỗng. Nếu bạn không đạt được, bạn sẽ càng tuyệt vọng hơn. Trong cả hai trường hợp, rượu bia lại xuất hiện như một lối thoát quen thuộc. Sớm hay muộn, bạn cũng quay về vũng lầy cũ.</p>
+<p>Việc gắn việc dừng uống với những phần thưởng giả chỉ làm tăng thêm nghi ngờ. Nếu bạn không chạm tới phần thưởng — hoặc thậm chí khi đã chạm tới — bạn sẽ tự hỏi: “Liệu bỏ rượu có thực sự cải thiện cuộc sống của tôi không? Hay là tôi làm sai cách?” Những suy nghĩ này nuôi dưỡng cảm giác hy sinh, và chính cảm giác đó kích hoạt triệu chứng cai.</p>
+<p>Một biến thể khác là những lời thề tập thể: hứa với bạn bè, nhóm mạng xã hội, hay các diễn đàn rằng sẽ cùng nhau dừng uống. Chúng có thể giúp giảm cám dỗ trong ngắn hạn, nhưng thường thất bại vì những lý do sau.</p>
+<p>Thứ nhất, phần thưởng vẫn là giả. Tại sao bạn phải dừng uống chỉ vì người khác cũng đang làm vậy? Điều này tạo thêm áp lực và cảm giác bị ép buộc. Không ai có thể bị “cai” thay. Khi chưa thực sự sẵn sàng, một hiệp ước chỉ khiến ham muốn uống tăng lên, và biến người nghiện thành kẻ uống lén lút hơn.</p>
+<p>Thứ hai, sự phụ thuộc lẫn nhau của phương pháp ý chí tạo cảm giác như đang chịu một giai đoạn sám hối, ngồi chờ cơn thèm tự biến mất. Khi một người bỏ cuộc, những người còn lại lập tức có cái cớ để buông xuôi. Ít nhất thì “không phải lỗi của mình”, vì người khác cũng đã thất bại. Thực tế là nhiều người đã gian lận từ trước, chỉ chờ thời điểm hợp lý để quay lại uống.</p>
+<p>Thứ ba, việc “chia sẻ công trạng” làm giảm động lực. Có một cảm giác thành tựu rất rõ ràng khi bạn dừng uống và biết rằng đó là quyết định của riêng mình. Khi ai cũng cùng tuyên bố và cùng cố gắng, công trạng bị chia nhỏ, và động lực cũng nguội dần.</p>
+<p>Thứ tư là lời hứa của các “guru”. Đúng là khi dừng uống, bạn sẽ cảm thấy nhẹ nhõm hơn vì cuộc giằng co trong đầu chấm dứt, não bộ bắt đầu điều chỉnh lại, khả năng kiểm soát xung động dần phục hồi. Nhưng điều đó không biến bạn thành một con người siêu phàm, cũng không khiến đời bạn tự nhiên rực rỡ. Không ai ngoài bạn thực sự quan tâm việc bạn có uống hay không. Bạn không yếu đuối vì uống mỗi ngày, và bạn cũng không trở nên cao thượng chỉ vì dừng uống.</p>
+<p>Hãy ngừng tự lừa dối mình. Những “phần thưởng” đó không tạo ra khác biệt tích cực nào. Chúng chỉ làm cho cuộc chiến trở nên gay gắt hơn. Thay vào đó, hãy nhìn thẳng vào câu hỏi cốt lõi:</p>
+<p>“Tôi thực sự được lợi gì từ rượu bia? Tại sao tôi <em>phải</em> uống?”</p>
+<p>Hãy nhìn sang phía bên kia của cuộc giằng co và xem rượu bia đang làm gì cho bạn. Câu trả lời là: hoàn toàn không có gì. Bạn không cần uống. Thứ duy nhất bạn đang làm là tự duy trì sự khó chịu của chính mình. Mất đi chỉ là vài phút “dễ chịu” giả tạo vốn sẽ nhanh chóng tàn lụi; đổi lại là khả năng cảm nhận niềm vui tự nhiên, sự bình an trong đầu, và một cuộc sống nhẹ nhõm hơn. Quan trọng nhất, không có rủi ro thật sự nào.</p>
+<p>Vậy tại sao phải tuyên bố việc dừng uống với cả thế giới? Làm vậy chỉ khiến bạn tự đóng khung mình là “người từng nghiện”, thay vì đơn giản là một người không còn uống và đang sống bình thường.</p>
+<p>Việc dựa vào người khác để “giúp” bạn dừng uống chỉ khiến con tiểu quỷ trong đầu mạnh hơn. Cố gắng đè nén hay xua đuổi suy nghĩ về rượu bia cũng vô ích, vì bản thân hành động đó đã giữ nó trong tâm trí. Cách tiếp cận hiệu quả hơn là nhận diện suy nghĩ khi nó xuất hiện, và thừa nhận một cách bình thản: “Tốt, mình không còn là nô lệ của rượu bia nữa.” Khi bạn không tranh đấu với suy nghĩ, nó sẽ tự mất oxy và tàn lụi, không kịp biến thành cơn thèm. Việc thực hành chánh niệm có thể hỗ trợ quá trình này, bằng cách giúp bạn nhìn suy nghĩ như một hiện tượng thoáng qua, chứ không phải mệnh lệnh cần phải tuân theo.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="19.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="21.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="19.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="21.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

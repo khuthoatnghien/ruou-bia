@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 21: Để dừng chơi cờ bạc một cách đơn giản - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>Chương 21: Để dừng uống rượu bia một cách <em>đơn giản</em></strong></p>
+<p>Chương này nói về cách dừng rượu bia theo cách dễ nhất có thể. Nếu bạn làm đúng những điều sau, bạn sẽ thấy việc dừng lại nhẹ nhàng đến mức khó tin, thậm chí là thoải mái. Tất cả những gì bạn cần làm chỉ là:</p>
+<ol>
+<li>Đưa ra quyết định rằng bạn sẽ không bao giờ uống rượu bia nữa.</li>
+<li>Đừng ủ rũ hay tiếc nuối về điều đó. Hãy tận hưởng khoảnh khắc này.</li>
+</ol>
+<p>Có lẽ bạn sẽ nghĩ: <em>“Nếu đơn giản vậy thì cần gì cả cuốn sách? Sao không nói thẳng từ đầu?”</em> Bởi vì nếu nói như thế ngay từ đầu, bạn sẽ vẫn còn tiếc nuối, và rồi bạn sẽ lại quay về uống — điều mà bạn đã làm không ít lần.</p>
+<p>Rượu bia là một cái bẫy tinh vi. Vấn đề chính của việc dừng uống không nằm ở cơn thèm sinh lý (<em>đó chỉ là phần nhỏ</em>), mà nằm ở sự tẩy não. Những niềm tin sai lầm phải được tháo gỡ hoàn toàn trước. Nếu không, bạn chỉ đang cố gắng chịu đựng trong khi vẫn tin rằng mình đang mất đi một thứ gì đó quý giá.</p>
+<p>Thay vì vô thức rót thêm một ly, tôi bắt đầu quan sát cảm xúc và suy nghĩ của mình. Tôi nhận ra một điều rất rõ: tôi không hề thích rượu bia. Tôi ghét mùi, ghét cảm giác lờ đờ, ghét sự mất kiểm soát và ghét việc sáng hôm sau phải sống trong trạng thái rệu rã. Tôi cũng bắt đầu quan sát những người không uống — ở những nơi khác nhau, hoặc những người lớn tuổi chưa bao giờ xem rượu bia là một phần của cuộc sống. Trước đây tôi từng nghĩ họ là những người khô khan, cứng nhắc, thiếu “niềm vui”. Nhưng khi quan sát kỹ, tôi thấy điều ngược lại: họ điềm tĩnh hơn, tỉnh táo hơn, xử lý căng thẳng tốt hơn và dường như tận hưởng các buổi gặp gỡ xã hội một cách trọn vẹn hơn những người lệ thuộc vào rượu.</p>
+<p>Tôi nói chuyện với những người đã dừng uống. Trước đó, tôi luôn mặc định rằng họ là những người <em>bị buộc</em> phải bỏ vì bệnh tật, tai nạn hay lý do gia đình, và trong thâm tâm họ vẫn thèm được uống trở lại. Nhưng thực tế không phải vậy. Một số người nói: “Có lúc nhớ thoáng qua, nhưng hiếm và chẳng đáng bận tâm.” Phần lớn thì nói thẳng: “Nhớ rượu à? Không. Cuộc sống bây giờ nhẹ nhõm hơn nhiều.” Điều quan trọng là họ không tự dằn vặt bản thân. Họ nhìn thẳng vào sự thật. Nhờ đó, một ảo tưởng lớn trong tôi sụp đổ: rằng tôi yếu đuối. Thực tế là bất kỳ ai rơi vào cái bẫy này cũng đều giống nhau.</p>
+<p>Về bản chất, tôi tự nhủ: <em>“Hàng triệu người đang dừng uống ngay lúc này và sống hoàn toàn ổn. Trước khi nghiện, mình đâu cần rượu. Vậy tại sao bây giờ lại cần?”</em> Tôi chưa bao giờ thực sự thích thứ chất lỏng này, và tôi chắc chắn không muốn dành phần đời còn lại để làm nô lệ cho nó. Rồi tôi nói với chính mình:</p>
+<p><em>“Dù thế nào đi nữa, đây là lần cuối cùng mình uống rượu bia.”</em></p>
+<p>Ngay lúc đó, tôi biết chắc mình sẽ không bao giờ phải uống lại. Tôi vẫn nghĩ rằng mọi chuyện sẽ khó khăn, rằng tôi sẽ phải chịu đựng những ngày u ám và những cơn vật vã kinh khủng. Nhưng điều đó đã không xảy ra. Mọi thứ trôi qua nhẹ nhàng ngay từ đầu.</p>
+<p>Tôi mất một thời gian để hiểu vì sao việc này lại dễ đến vậy. Lý do rất đơn giản: những cơn đau cai dữ dội chỉ tồn tại khi còn nghi ngờ. Chính sự do dự và không chắc chắn mới tạo ra đau khổ. Sự thật là: <strong>dừng uống rượu bia là việc rất dễ</strong>. Ngay cả người nghiện nặng cũng có thể không uống trong vài ngày hay vài tuần. Chỉ khi họ <em>muốn</em> uống mà không được uống, họ mới thấy khổ. Khi không còn muốn, không còn tin rằng mình đang bị tước đoạt, thì không có gì để chịu đựng cả.</p>
+<p>Vì vậy, chìa khóa nằm ở sự dứt khoát. Không phải hy vọng, mà là <em>biết chắc</em> rằng bạn đã dừng uống ngay khi bạn đưa ra quyết định đó. Đừng nghi ngờ, đừng đặt câu hỏi. Ngược lại, hãy thấy nhẹ nhõm. Nếu bạn chắc chắn ngay từ đầu, mọi thứ sẽ đơn giản. Nhưng để có được sự chắc chắn đó, có vài điểm cốt lõi cần làm rõ:</p>
+<ol>
+<li>Nhận thức rõ rằng bạn hoàn toàn làm được. Bạn không khác ai cả. Không ai có thể ép bạn uống, ngoài chính bạn. Chai rượu không có quyền lực gì; nó không tự nhảy vào miệng bạn.</li>
+<li>Bạn không từ bỏ thứ gì có giá trị. Ngược lại, bạn đang lấy lại rất nhiều: sức khỏe, sự tỉnh táo, khả năng tận hưởng cuộc sống và sự vững vàng khi đối mặt với khó khăn.</li>
+<li>Đừng bao giờ nghĩ “chỉ một ly thôi” hay “chỉ dịp này thôi”. Rượu bia, cũng như mọi nghiện khác, hoạt động theo phản ứng dây chuyền. Một lần quay lại chỉ là cách tự hành hạ mình vô ích.</li>
+<li>Đừng xem rượu bia là thứ “ai cũng uống”. Hãy nhìn nó đúng bản chất: một sự lệ thuộc. Dù bạn có thích hay không, nếu bạn đã nghiện thì đó là một vấn đề thực sự, và nó không tự biến mất chỉ vì bạn làm ngơ. Giống như mọi chứng nghiện khác, nó chỉ ngày càng nặng hơn. Thời điểm tốt nhất để chấm dứt nó luôn là <em>ngay bây giờ</em>.</li>
+<li>Tách biệt tình trạng lệ thuộc sinh lý–thần kinh khỏi con người thật của bạn. Không ai <em>muốn</em> trở thành người nghiện. Nếu có cơ hội quay lại thời điểm trước khi lệ thuộc, ai cũng sẽ chọn điều đó. Bạn đang có cơ hội ấy. Đừng coi việc dừng uống là hy sinh — đó là sự giải thoát.</li>
+</ol>
+<p>Khi bạn đưa ra quyết định rằng <strong>ly rượu vừa rồi là ly cuối cùng</strong>, thì ngay khoảnh khắc đó, bạn đã là <strong>một người không uống rượu bia</strong> rồi.
+Người nghiện là kẻ đang tiếp tục sống một cuộc đời tự bào mòn mình bằng rượu.
+Người không uống là người <strong>không làm điều đó</strong>.</p>
+<p>Một khi quyết định cuối cùng đã được đưa ra, bạn đã đạt được mục tiêu. Hãy vui với sự thật ấy. Đừng ngồi đó ủ rũ, đếm từng giờ và chờ “cơn thèm” trôi qua. Hãy bước ra ngoài ngay. Cuộc sống vốn đã ổn ngay cả khi bạn còn uống, và nó sẽ <strong>tốt hơn rõ rệt từng ngày</strong> khi bạn không còn lệ thuộc nữa.</p>
+<p>Chìa khóa để việc dừng uống trở nên dễ dàng là <strong>sự chắc chắn tuyệt đối</strong> rằng bạn đã chấm dứt hoàn toàn trong giai đoạn đầu — tối đa khoảng ba tuần. Nếu bạn đã có góc nhìn đúng, bạn sẽ thấy điều này không hề khó.</p>
+<p>Ở thời điểm này, nếu bạn đã thực sự mở lòng như được đề nghị từ đầu, thì bạn đã quyết định thoát khỏi chứng nghiện này. Lẽ ra lúc này bạn phải cảm thấy phấn khích — như một con vật vừa được tháo xích, nóng lòng phá vỡ những “máng trượt” thần kinh mà rượu đã bôi trơn trong não bạn.
+Nếu thay vào đó bạn cảm thấy u ám hay bi quan, thì nguyên nhân chỉ có thể là một trong những điều sau:</p>
+<ol>
+<li>Có điểm nào đó vẫn chưa “ăn khớp” trong đầu bạn. Hãy quay lại những nguyên tắc cốt lõi và tự hỏi xem bạn <strong>có thật sự tin</strong> chúng không. Nếu còn nghi ngờ, hãy đọc lại phần tương ứng.</li>
+<li>Bạn sợ thất bại. Điều này không đáng lo. Toàn bộ sự lệ thuộc vào rượu là một trò bịp tinh vi ở quy mô lớn. Người thông minh hoàn toàn có thể mắc bẫy, nhưng chỉ kẻ ngốc — sau khi đã nhìn ra trò bịp — mới tiếp tục tự lừa mình.</li>
+<li>Bạn đồng ý với mọi lập luận nhưng vẫn cảm thấy khổ. Điều này nghe có vẻ nghịch lý, nhưng hãy nhìn thẳng vào nó: <strong>một điều rất tốt đang xảy ra</strong>. Bạn sắp bước ra khỏi nhà tù. Tâm thế đúng cần có là:
+<em>“Thật tuyệt khi tôi là một người không uống rượu bia.”</em></li>
+</ol>
+<p>Điều duy nhất bạn cần làm lúc này là <strong>giữ vững tâm thế đó</strong> trong giai đoạn đầu, và những phần tiếp theo chỉ nhằm giúp bạn làm việc ấy dễ dàng hơn. Sau giai đoạn này, bạn sẽ không cần phải tự nhắc nhở nữa — cách nghĩ đó sẽ trở thành tự động. Khi ấy, điều khó hiểu duy nhất còn lại sẽ là: <em>“Tại sao mình không nhận ra sớm hơn?”</em></p>
+<p>Tuy nhiên, có hai cảnh báo quan trọng:</p>
+<p>– Hãy trì hoãn “ly cuối cùng” cho đến khi bạn đọc xong toàn bộ phần này.
+– Việc nhắc đến mốc “tối đa ba tuần” rất dễ gây hiểu lầm.
+Thứ nhất, bạn có thể vô thức nghĩ rằng mình phải <strong>chịu đựng</strong> trong ba tuần. Không hề.
+Thứ hai, hãy tránh bẫy suy nghĩ: <em>“Cố chịu ba tuần rồi mọi thứ sẽ ổn.”</em> Không có phép màu nào xảy ra đúng ngày thứ 21 cả. Người không uống không có cảm giác gì đặc biệt — họ chỉ đơn giản là <strong>không còn là người nghiện</strong>.
+Nếu bạn u ám suốt ba tuần, khả năng cao bạn vẫn sẽ u ám sau đó. Ngược lại, nếu ngay bây giờ bạn có thể nói:
+<em>“Tôi sẽ không bao giờ uống rượu bia nữa — và điều đó thật tuyệt,”</em>
+thì sau ba tuần, mọi cám dỗ sẽ tự biến mất.
+Còn nếu bạn nghĩ: <em>“Ước gì mình chịu nổi ba tuần không có rượu,”</em> thì bạn sẽ sống trong trạng thái thèm khát và chờ ngày “được uống lại”.</p>
+<p>Hãy nhìn vấn đề theo cách này: não bộ luôn muốn duy trì hiện trạng. Nếu bạn tin rằng mình đang mất đi một thứ gì đó tốt đẹp khi dừng uống, thì bạn <strong>bắt buộc</strong> sẽ cảm thấy tệ. Bạn không thể ép bản thân cảm thấy nhẹ nhõm khi não bạn vẫn tin rằng bạn đang bị tước đoạt. Đó là lý do vì sao việc xóa bỏ hoàn toàn ảo tưởng rằng rượu bia mang lại cho bạn <em>bất cứ lợi ích gì</em> là điều then chốt. Chỉ khi đó bạn mới biết chắc rằng mình <strong>không đánh đổi gì cả</strong>.</p>
+<p>Rất nhiều rối loạn về tinh thần, cảm xúc và khả năng kiểm soát bản thân liên quan trực tiếp đến não bộ. Rượu đã đi dây lại mạch tưởng thưởng và gieo vào tâm trí bạn một trạng thái <strong>nghi ngờ thường trực</strong>. Chính sự nghi ngờ này làm xói mòn sự tự tin, sự ổn định và cảm giác làm chủ cuộc sống. Việc đầu óc muốn sống tỉnh táo nhưng cơ thể lại đòi rượu là một trong những trải nghiệm tâm lý tệ nhất.</p>
+<p>Sự tỉnh táo đi cùng sự bình thản là “liều thuốc” bạn có thể mang theo đến cuối đời. Thoát khỏi nghiện giúp bạn giữ điều đó ở mức cao. Nhưng đó chưa phải lợi ích lớn nhất.
+Lợi ích lớn nhất là: <strong>tự do khỏi kiếp nô lệ</strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="20.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="22.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="20.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="22.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 26: Ta có nên tránh khỏi tình huống cám dỗ? - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chương-26-tôi-có-nên-tránh-các-tình-huống-cám-dỗ-không"><a class="header" href="#chương-26-tôi-có-nên-tránh-các-tình-huống-cám-dỗ-không">Chương 26: Tôi có nên tránh các tình huống cám dỗ không?</a></h1>
+<p>Cho đến giờ, các chỉ dẫn được đưa ra đều khá trực tiếp và cần được coi là <strong>hướng dẫn</strong>, không phải gợi ý. Điều này có cơ sở thực tế rõ ràng. Tuy nhiên, với câu hỏi có nên chủ động tránh các tình huống cám dỗ hay không, thì câu trả lời không hoàn toàn tuyệt đối. Mỗi người sẽ cần tự quyết định. Dù vậy, có hai gợi ý thực tế giúp bạn nhìn rõ vấn đề này hơn.</p>
+<p>Chính <strong>nỗi sợ về những cơn khó chịu trong tương lai</strong> mới là thứ giữ người nghiện tiếp tục uống rượu bia suốt đời. Nỗi sợ này gồm hai giai đoạn tách biệt.</p>
+<p><strong>Giai đoạn 1 – “Làm sao tôi có thể sống mà không có rượu bia?”</strong></p>
+<p>Đây là trạng thái hoảng loạn tâm lý xuất hiện khi người nghiện tưởng tượng ra một cuộc sống không có rượu: không nhậu nhẹt, không xả stress, không “thư giãn”. Nỗi sợ này không đến từ cơn khó chịu thể chất, mà từ <strong>niềm tin lệ thuộc</strong> – niềm tin rằng mình không thể đối phó với cuộc sống nếu thiếu rượu bia. Nó thường đạt đỉnh ngay trước hoặc ngay khi bạn quyết định dừng uống, tức là lúc các triệu chứng thể chất còn ở mức thấp nhất.</p>
+<p>Đó là nỗi sợ của điều chưa biết, tương tự như khi học nhảy cầu xuống nước. Tấm ván chỉ cao vài chục centimet nhưng trông như cao hàng mét. Nước đủ sâu nhưng trông lại có vẻ nguy hiểm. Cần can đảm để nhảy xuống, vì trong đầu bạn luôn có cảm giác là mình sẽ đập đầu hoặc gặp rủi ro. Cú nhảy đó là phần khó nhất. Một khi đã nhảy, phần còn lại trở nên rất đơn giản.</p>
+<p>Điều này giải thích vì sao nhiều người nghiện, dù ý chí mạnh, chưa bao giờ thực sự dám dừng uống, hoặc chỉ cầm cự được vài ngày. Trên thực tế, có những người khi “quyết tâm cai”, lại uống nhiều hơn trước. Chính quyết định dừng uống tạo ra hoảng loạn, hoảng loạn tạo căng thẳng, và căng thẳng kích hoạt thôi thúc uống. Nhưng vì họ đang “cai”, họ không uống ngay được, nên cảm giác thiếu thốn lại càng tăng, khiến áp lực tâm lý lớn hơn.</p>
+<p>Tất cả diễn ra rất nhanh: một suy nghĩ, một cảm giác khó chịu, và hành vi quen thuộc đã sẵn sàng kích hoạt. Đừng lo. Sự hoảng loạn đó hoàn toàn là <strong>tâm lý</strong>. Nó không chứng minh rằng bạn cần rượu bia, mà chỉ cho thấy bạn <strong>tin rằng mình cần</strong>. Sự thật là bạn không hề lệ thuộc vào nó để sống, ngay cả khi bạn vẫn đang nghiện. Đừng hoảng sợ. Cứ “nhảy” đi.</p>
+<p><strong>Giai đoạn 2 – Nỗi sợ dài hạn</strong></p>
+<p>Giai đoạn thứ hai mang tính dài hạn hơn: nỗi sợ rằng trong tương lai, một số tình huống sẽ trở nên kém vui, hoặc bạn sẽ không thể chịu đựng căng thẳng nếu không có rượu bia. Đừng lo. Nếu bạn vượt qua được cú “nhảy” ban đầu, bạn sẽ sớm thấy điều ngược lại là đúng.</p>
+<p>Vấn đề tránh cám dỗ thường rơi vào hai kiểu sau.</p>
+<p>Thứ nhất:
+“<em>Tôi sẽ uống theo chu kỳ, ví dụ bốn ngày một lần. Như vậy tôi sẽ yên tâm hơn vì biết rằng nếu quá khó chịu, tôi vẫn có thể uống. Nếu lỡ thất bại cũng không sao, lần sau tôi sẽ kéo dài hơn.</em>”</p>
+<p>Tỷ lệ thất bại của cách này <strong>cao hơn rất nhiều</strong> so với việc dừng hẳn. Lý do rất đơn giản: khi bạn có một ngày tồi tệ trong giai đoạn dừng uống, việc viện cớ để mở một lon bia hay rót một ly rượu trở nên quá dễ dàng. Nếu bạn cảm thấy xấu hổ khi phá vỡ quy tắc của chính mình, bạn có thể trì hoãn và cơn khó chịu sẽ qua. Nhưng nguyên nhân chính của thất bại vẫn là: ngay từ đầu, người nghiện <strong>chưa thực sự chắc chắn rằng mình không cần rượu bia nữa</strong>.</p>
+<p>Hãy nhớ hai yếu tố cốt lõi để thành công:</p>
+<p>– <strong>Sự chắc chắn.</strong>
+– <strong>Cảm nhận rõ ràng rằng: “Thật tuyệt khi tôi không cần rượu bia nữa.”</strong></p>
+<p>Nếu bạn vẫn nghĩ mình cần “một lần uống”, thì có nghĩa là trong đầu bạn vẫn còn điều gì đó chưa được tháo gỡ. Hãy quay lại, nhìn thẳng vào niềm tin đó và tiêu diệt hoàn toàn sự tẩy não trong tâm trí bạn.</p>
+<p>Thứ hai:
+“<em>Tôi có nên tránh những tình huống căng thẳng hoặc các buổi giao tiếp xã hội trong giai đoạn dừng uống không?</em>”</p>
+<p>Với những tình huống căng thẳng không cần thiết, câu trả lời là có. Không có lý do gì để tự tạo thêm áp lực. Nhưng với các sự kiện xã hội, câu trả lời lại là không. Hãy ra ngoài và tham gia. Hãy tận hưởng việc giao tiếp mà không cần rượu bia. Điều đó sẽ nhanh chóng cho bạn thấy một sự thật đơn giản nhưng quan trọng: <strong>cuộc sống dễ chịu hơn rất nhiều khi không còn phải dựa vào rượu để “vui” hay “thoải mái”</strong>.</p>
+<p>Hãy nghĩ xem mọi thứ sẽ còn nhẹ nhõm đến mức nào khi con quỷ sinh hóa biến mất, cùng với những suy nghĩ lệ thuộc và tự ti đó. Khi ấy, bạn không phải né tránh cám dỗ — vì đơn giản là nó không còn sức hấp dẫn nữa.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="25.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="27.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="25.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="27.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 6: Các khía cạnh của sự tẩy não - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="chương-6-các-khía-cạnh-của-sự-tẩy-não"><a class="header" href="#chương-6-các-khía-cạnh-của-sự-tẩy-não">Chương 6: Các khía cạnh của sự tẩy não</a></h2>
+<p>Con đại quỷ của cạm bẫy rượu bia không tự nhiên xuất hiện. Nó được nuôi lớn dần bởi nhiều yếu tố đan xen: áp lực xã hội, hình ảnh trên truyền thông, những lời mời gọi quen thuộc từ bạn bè, và đặc biệt là các độc thoại nội tâm của chính người uống. Nếu chỉ dựa vào ý chí để “chống lại” mà không bóc tách được những ảo tưởng xoay quanh rượu bia, người lệ thuộc gần như chắc chắn sẽ thất vọng và quay lại. Muốn thoát ra, cần phải tháo bỏ giá trị tưởng tượng mà bạn đã gán cho rượu, đồng thời nhìn thẳng vào những gì bạn đang đánh mất.</p>
+<p>Một điểm then chốt là mối liên hệ giữa sự tẩy não và nỗi sợ. Chính nỗi sợ về “cơn khó chịu khi không uống” trong tương lai lại <em>chính là</em> cơn khó chịu đó. Nỗi sợ này <em>là</em> cái gọi là đau cai. Hãy nhớ lại những triệu chứng thường được gán cho “cai rượu”: bồn chồn, đổ mồ hôi, tim đập nhanh, khó ngủ, đầu óc mơ hồ. Giờ hãy nghĩ đến những tình huống hoàn toàn không liên quan đến rượu nhưng gây ra cảm giác tương tự: phỏng vấn xin việc, hồi hộp trước một buổi thuyết trình, chờ đợi kết quả quan trọng. Đó là những phản ứng lo âu do <strong>sợ hãi</strong>, không phải do thiếu cồn. Nếu đây là một cơn nghiện thuần túy về thể chất, tại sao cảm giác đó vẫn ám ảnh người ta sau nhiều tuần, thậm chí nhiều tháng không uống? Rõ ràng, thứ trói buộc bạn không nằm ở cơ thể, mà ở <strong>tâm trí</strong>.</p>
+<h2 id="căng-thẳng"><a class="header" href="#căng-thẳng">Căng thẳng</a></h2>
+<p>Không chỉ những biến cố lớn, mà cả những căng thẳng nhỏ nhặt hàng ngày cũng đủ đẩy người lệ thuộc vào vùng nguy hiểm. Căng thẳng có thể đến từ giao tiếp xã hội, những cuộc gọi công việc, áp lực tài chính, hoặc sự mệt mỏi của người phải gánh nhiều trách nhiệm gia đình. Lấy ví dụ một người đi làm: phần lớn các cuộc gọi không mang tin vui, mà là yêu cầu, phàn nàn, hoặc rắc rối cần giải quyết. Khi trở về nhà, tiếng ồn ào của con cái và những đòi hỏi cảm xúc từ bạn đời có thể khiến người đã quen uống rượu bắt đầu nghĩ đến việc “làm vài ly cho dễ chịu”.</p>
+<p>Chính sự thiếu hụt dopamine và trạng thái bất ổn thần kinh này khiến cơn thèm trở nên rõ rệt hơn. Khi uống, cảm giác khó chịu giảm xuống, và người uống cảm thấy dễ chịu ngay lập tức. Sự giải tỏa đó không phải là tưởng tượng; nó có thật trong khoảnh khắc. Nhưng về lâu dài, người lệ thuộc trở nên căng thẳng hơn nhiều so với người không uống, bởi họ đã làm suy yếu hệ thống tự điều chỉnh của não bộ.</p>
+<p>Ví dụ sau đây không nhằm gây sốc, mà để làm rõ rằng rượu bia <strong>phá hoại</strong> hệ thần kinh chứ không hề giúp nó thư giãn.</p>
+<p>Hãy tưởng tượng một giai đoạn mà bạn không còn cảm thấy thực sự thoải mái, tự nhiên, hay vui vẻ nếu không có rượu. Hãy hình dung cuộc sống nơi một buổi trò chuyện bình thường, một bữa tiệc gia đình, hay thậm chí một buổi tối yên tĩnh cũng trở nên “thiếu thiếu” nếu không có ly rượu trên tay. Hãy tưởng tượng trạng thái tinh thần của một người, khi nhận ra rằng khả năng thư giãn, kết nối và tận hưởng cuộc sống của mình đã bị thay thế bằng một chất bên ngoài — vậy mà vẫn tiếp tục uống cho đến hết đời. Nghe có vẻ cực đoan, nhưng những trường hợp như vậy không hề hiếm.</p>
+<p>Đây chính là mặt trái đáng sợ của thứ <em>thuốc an thần giả tạo</em> mang tên rượu bia. Càng lệ thuộc lâu, con người càng trở nên lo âu, bất an và ngày càng tin chắc rằng rượu là thứ giúp họ “ổn định”, trong khi thực tế nó tạo ra chính sự bất ổn đó.</p>
+<p>Bạn đã bao giờ bồn chồn, khó chịu khi đến một buổi tiệc mà không có đồ uống có cồn? Người không lệ thuộc không phải chịu cảm giác đó, bởi rượu chính là nguyên nhân. Dần dần, rượu làm mòn hệ thần kinh, củng cố các đường dẫn lệ thuộc trong não, từng bước tước đoạt khả năng tự chủ. Và rồi, người uống mắc kẹt trong ảo tưởng rằng rượu là chỗ dựa, là chất xúc tác xã hội, là thứ không thể thiếu.</p>
+<p><em>Rượu bia không làm bạn bớt căng thẳng; nó đang từng bước phá hủy sự bình yên trong cuộc sống của bạn.</em> Một trong những lợi ích rõ ràng nhất của việc thoát khỏi lệ thuộc là sự trở lại của cảm giác ổn định, tự tin và an nhiên — những thứ mà người không nghiện vốn đã có sẵn.</p>
+<p>Bạn không cần phải đánh giá bản thân dựa trên khả năng “uống được bao nhiêu”, “chịu được đến đâu”, hay “có hòa nhập hay không”. Bạn không thể tự do nếu tiếp tục dùng một chất bên ngoài để tạo ra cảm giác thoải mái, trong khi chính thói quen đó đang âm thầm bào mòn hạnh phúc và khả năng tận hưởng cuộc sống một cách tự nhiên.</p>
+<h2 id="chán"><a class="header" href="#chán">Chán</a></h2>
+<p>Nếu bạn giống nhiều người khác, ngay khi về đến nhà hoặc vừa ngả lưng nghỉ ngơi, bạn đã với tay lấy chai bia hay rót một ly rượu quen thuộc, gần như theo phản xạ. Tương tự, niềm tin rằng rượu bia xua tan sự buồn chán cũng là một ngụy biện. Buồn chán là một trạng thái tinh thần, thường xuất hiện khi bạn đã không uống trong một thời gian hoặc đang cố gắng cắt giảm.</p>
+<p>Thực tế diễn ra như sau: khi bạn đã quen với sức hút “siêu thường” của rượu bia — cảm giác lâng lâng nhanh, mạnh và dễ đạt được — rồi sau đó cố dừng lại, bạn sẽ cảm thấy trống trải. Nếu có điều gì đó đủ nhẹ nhàng để lấp đầy tâm trí, bạn có thể trải qua những khoảng thời gian dài mà không bị cảm giác “thiếu” này quấy rầy. Nhưng khi buồn chán, không có gì để xao nhãng, bạn lại quay về “nuôi” cơn thèm. Và khi bạn không hề có ý định cai hay giảm, hành vi uống diễn ra hoàn toàn tự động. Nếu cố nhớ lại mình đã uống bao nhiêu lần trong tuần qua, bạn chỉ nhớ được vài lần gần nhất hoặc những lần sau một khoảng gián đoạn dài.</p>
+<p>Sự thật là rượu bia gián tiếp <strong>làm tăng</strong> cảm giác buồn chán. Uống xong, bạn uể oải, chậm chạp, thiếu động lực. Thay vì tham gia các hoạt động giàu năng lượng, người lệ thuộc có xu hướng ngồi lì, thụ động, chỉ để xoa dịu cơn khó chịu bên trong. Việc chống lại sự tẩy não ở đây là then chốt, bởi não bộ đã bị lập trình để diễn giải rượu là thứ “thú vị”. Cũng giống như vậy, chúng ta còn bị nhồi nhét ý tưởng rằng uống rượu giúp thư giãn. Trong thực tế, khi mệt mỏi hay căng thẳng, nhiều người chỉ cần trò chuyện, nghỉ ngơi hoặc ngủ một giấc là đã ổn. Nhưng nếu không phân biệt được giữa thư giãn thật và sự làm tê liệt tạm thời, hãy để ý xem sau khi “uống cho xong”, bạn còn muốn tiếp tục ở lại với người khác hay chỉ muốn tách ra, trốn vào trạng thái lờ đờ quen thuộc. Nhiều khi, chỉ cần ngồi yên, nói chuyện hoặc đi ngủ sớm, cảm giác nhẹ nhõm lại đến rõ ràng hơn nhiều.</p>
+<h2 id="tập-trung"><a class="header" href="#tập-trung">Tập trung</a></h2>
+<p>Rượu bia không giúp bạn tập trung hơn. Khi cần tập trung, phản xạ tự nhiên là tránh xa những thứ gây xao nhãng. Thế nhưng người lệ thuộc lại làm điều ngược lại: mỗi khi gặp trở ngại tinh thần, họ “làm một ngụm” để xoa dịu cơn khó chịu, rồi quay lại công việc. Mọi thứ diễn ra nhanh đến mức họ không nhận ra mình vừa uống. Nhưng hậu quả tích tụ theo năm tháng. Sau nhiều năm dựa vào cồn để điều chỉnh trạng thái, não bộ thay đổi: trí nhớ kém hơn, khả năng lập kế hoạch suy giảm, kiểm soát bốc đồng yếu đi.</p>
+<p>Bạn cũng bị thôi thúc tìm “liều” tiếp theo, vì lượng cũ không còn mang lại cảm giác như trước. Do đó, bạn uống nhiều hơn, mạnh hơn, hoặc thường xuyên hơn. Rồi kết thúc trong trạng thái mệt mỏi và trống rỗng. Khả năng tập trung suy giảm không phải vì thiếu rượu, mà vì não đã quen với những cú kích thích lớn và không còn phản ứng với những niềm vui nhỏ, tự nhiên từ vận động, đọc sách hay suy nghĩ sâu.</p>
+<p>Khi bạn cố dừng bằng ý chí, sự mất tập trung này thường là lý do khiến bạn sụp đổ. Bạn chịu được bứt rứt, chịu được cáu kỉnh, nhưng khi không còn làm việc hiệu quả như trước, bạn bắt đầu nghi ngờ quyết định của mình. Và mỗi khi gặp rào cản tinh thần, phản xạ cũ lại xuất hiện: uống một chút cho “dễ vào việc”. Rồi bạn quay lại làm việc, giống hệt như người chưa từng nghiện vẫn làm — chỉ khác là họ không cần đến rượu.</p>
+<p>Trong thời gian còn lệ thuộc, bạn không bao giờ quy trách nhiệm cho nguyên nhân thật. Khi mọi thứ trục trặc, bạn cho rằng mình “chưa vào guồng”, “hơi mệt”, hoặc “thiếu động lực”. Khoảnh khắc bạn ngừng uống, mọi khó khăn bỗng bị đổ lỗi cho việc dừng lại. Chính sự nghi ngờ này — chứ không phải cơn đau cai thể chất — mới là vấn đề. Người không uống không phải chịu đựng những vật vã này.</p>
+<h2 id="thư-giãn"><a class="header" href="#thư-giãn">Thư giãn</a></h2>
+<p>Hầu hết người lệ thuộc tin rằng rượu bia giúp họ thư giãn. Không phải vậy. Việc chờ đến giờ được uống, lựa chọn đồ uống, rồi tự mặc cả “chỉ một ly thôi” rõ ràng không phải là thư giãn.</p>
+<p>Sau một ngày dài, người không lệ thuộc có thể ăn uống, nghỉ ngơi và cảm thấy trọn vẹn. Người lệ thuộc thì không. Họ còn một cơn đói khác đang chờ được thỏa mãn. Họ gọi đó là “phần thưởng”, nhưng thực chất chỉ là cơn thèm đang lên tiếng.</p>
+<p>Sự thật là người lệ thuộc không bao giờ thực sự thư giãn. Và nếu tiếp tục, cảm giác đó chỉ ngày càng tệ hơn. Nhiều người từng tin rằng bản thân mình có vấn đề, rằng họ “yếu”, “dễ căng thẳng”. Sau khi thoát ra, họ mới thấy: không phải cuộc sống quá nặng nề, mà chính sự lệ thuộc đã khiến mọi thứ trở nên nặng nề.</p>
+<p>Khi nghe những lời biện minh quen thuộc như “tôi uống để thư giãn”, hãy nhìn vào thực tế: nếu thật sự thư giãn, tại sao chỉ cần không uống một hai ngày đã thấy bồn chồn? Tại sao người không uống lại có thể yên ổn, còn người lệ thuộc thì luôn chờ đến lúc được “nạp lại”? Họ đã quên mất cảm giác thư thái tự nhiên là thế nào.</p>
+<p>Rượu bia giống như chiếc bẫy ngọt ngào. Ban đầu tưởng là phần thưởng, nhưng khi nhận ra, bạn đã bị mắc kẹt từ lâu. Câu hỏi không phải là bạn có đủ ý chí hay không, mà là: bạn có còn muốn tiếp tục tin vào ảo tưởng đó nữa không.</p>
+<h2 id="năng-lượng"><a class="header" href="#năng-lượng">Năng lượng</a></h2>
+<p>Hầu hết người lệ thuộc rượu bia đều nhận thức được tác động ngày càng rõ của việc tăng liều, tăng tần suất đối với hệ thần kinh và cơ chế phần thưởng trong não. Nhưng rất ít người nhận ra rằng rượu bia cũng âm thầm bào mòn <strong>mức năng lượng sống</strong> của họ.</p>
+<p>Một trong những khía cạnh tinh vi nhất của cạm bẫy rượu bia là các tác động đồng thời lên cả thể chất lẫn tinh thần. Chúng diễn ra chậm rãi và khó nhận thấy đến mức người trong cuộc không hề ý thức được, và dần coi trạng thái mệt mỏi, thiếu sinh lực là “bình thường”. Điều này tương tự như một chế độ ăn uống kém lành mạnh kéo dài. Khi nhìn một người thừa cân nghiêm trọng, ta dễ thắc mắc làm sao họ lại để bản thân rơi vào tình trạng đó. Nhưng hãy tưởng tượng điều đó xảy ra chỉ sau một đêm: bạn đi ngủ với cơ thể gọn gàng, tỉnh táo, rồi thức dậy thấy mình nặng nề, uể oải, khó mở mắt và không còn chút sinh khí nào.</p>
+<p>Bạn sẽ hoảng sợ, nghĩ rằng mình vừa mắc một căn bệnh nghiêm trọng. Thực tế là quá trình đó đã diễn ra suốt hai mươi năm. Rượu bia cũng vậy. Nếu có thể “chuyển mạch” ngay lập tức để bạn so sánh trực tiếp cảm giác của mình khi dừng uống chỉ trong ba tuần, thì chừng đó đã đủ để thuyết phục bạn. Hãy tự hỏi: bạn có thực sự cảm thấy nhiều năng lượng hơn khi uống không, hay chỉ đơn giản là bạn đã quen với mức năng lượng thấp đến mức coi nó là chuẩn mực? Khi ngừng lại, bạn không chỉ thấy khỏe hơn, mà còn nhận ra sự trở lại rõ rệt của sự tự tin và khả năng tập trung.</p>
+<p>Sự thiếu năng lượng, mệt mỏi kéo dài thường bị đổ lỗi cho tuổi tác. Việc bạn bè, đồng nghiệp xung quanh cũng sống ì ạch càng củng cố niềm tin rằng đó là trạng thái “bình thường”. Quan niệm cho rằng năng lượng chỉ dành cho trẻ em và thanh thiếu niên, còn từ tuổi đôi mươi trở đi là phải chấp nhận mệt mỏi, chính là một biểu hiện khác của sự tẩy não. Cùng với đó là hiện tượng chai lì dopamine, khiến ta dần quên mất thế nào là ăn uống, vận động và nghỉ ngơi một cách lành mạnh.</p>
+<p>Chỉ một thời gian ngắn sau khi dừng rượu bia, cảm giác lờ đờ và uể oải bắt đầu biến mất. Lý do rất đơn giản: khi còn uống, bạn liên tục <strong>tiêu hao năng lượng</strong>, giống như rút tiền đều đặn từ một tài khoản đang cạn dần. Đồng thời, bạn làm rối loạn hệ limbic — trung tâm điều phối cảm xúc, động lực và hứng khởi sống. Không giống như một số thói quen khác nơi sự phục hồi diễn ra rất chậm, việc dừng rượu bia mang lại thay đổi tích cực gần như ngay lập tức.</p>
+<p>Việc dập tắt cơn thèm và làm mờ dần những “đường trượt” lệ thuộc trong não có thể cần thời gian, nhưng quá trình hồi phục của hệ thống phần thưởng nhẹ nhàng hơn rất nhiều so với con dốc mà bạn đã trượt xuống. Nếu bạn chọn cách gồng mình bằng ý chí, những lợi ích về năng lượng và tinh thần sẽ bị che lấp bởi cảm giác u uất do sự giằng co nội tâm. Trải nghiệm phục hồi không thể được truyền đạt bằng lời, nhưng bạn có thể hình dung nó. Ở mức bản năng, bạn đã biết điều gì là đúng; tất cả những gì còn lại là cho phép trí óc bạn nhìn thấy rõ sự khác biệt giữa một cuộc sống bị rút cạn năng lượng và một cuộc sống không còn bị rượu bia chi phối.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="05.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="07.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="05.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="07.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

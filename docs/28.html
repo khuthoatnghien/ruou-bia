@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 28: Ly cuối cùng - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chương-28-ly-cuối-cùng"><a class="header" href="#chương-28-ly-cuối-cùng">Chương 28: Ly cuối cùng</a></h1>
+<p>Khi đã chọn được thời điểm, bạn đã sẵn sàng cho <strong>lần uống rượu bia cuối cùng</strong>. Nhưng trước khi làm điều đó, hãy kiểm tra lại hai điểm cốt lõi sau:</p>
+<p>Thứ nhất, bạn có thực sự tin chắc rằng mình sẽ thành công hay không.
+Thứ hai, cảm giác bên trong bạn lúc này là nặng nề, chán nản, hay là sự nhẹ nhõm và háo hức vì sắp thoát khỏi một gánh nặng vô hình.</p>
+<p>Nếu còn bất kỳ do dự nào, hãy quay lại đọc kỹ những lập luận trước đó. Hãy nhớ một sự thật quan trọng: bạn chưa bao giờ <em>chủ động</em> muốn trở thành người nghiện rượu bia. Cái bẫy này được thiết kế để giữ bạn ở trong đó càng lâu càng tốt, và nó làm việc rất hiệu quả. Để bước ra, bạn cần một quyết định rõ ràng và dứt khoát: bạn sắp <strong>ngừng uống</strong>, và bạn sẽ kết thúc bằng <strong>ly cuối cùng</strong>.</p>
+<p>Bạn đọc đến đây vì trong lòng bạn thực sự khao khát được tự do. Vậy thì hãy đưa ra quyết định đó ngay bây giờ. Hãy tự cam kết với chính mình rằng khi bạn đặt ly xuống lần cuối — dù khoảnh khắc đó diễn ra dễ dàng hay không — bạn sẽ không bao giờ cần đến rượu bia nữa. Có thể bạn lo rằng mình đã từng cam kết nhiều lần rồi mà vẫn thất bại, hoặc bạn sợ rằng lần này sẽ rất khó chịu. Nhưng hãy nhìn thẳng vào điều tệ nhất có thể xảy ra: nếu bạn thất bại, bạn cũng chẳng mất gì cả. Bạn chỉ có thể hiểu rõ hơn mà thôi.</p>
+<p>Bây giờ hãy gạt ý nghĩ về thất bại sang một bên. Sự thật là việc dừng uống rượu bia không chỉ dễ hơn rất nhiều so với bạn tưởng, mà bạn còn có thể cảm thấy nhẹ nhõm ngay từ đầu. Lần này bạn không dùng ý chí để chịu đựng, mà dùng sự hiểu biết để kết thúc. Những gì bạn cần làm chỉ là thực hiện đúng những bước đơn giản sau.</p>
+<p>Thứ nhất, hãy đưa ra lời cam kết nghiêm túc ngay lúc này, và phải <em>thực sự tin</em> vào nó.</p>
+<p>Thứ hai, hãy uống ly rượu bia cuối cùng của bạn một cách có ý thức. Quan sát kỹ mọi thứ: mùi vị, cảm giác nơi cổ họng, sự gượng ép trong niềm “thư giãn” mà bạn vẫn tin là tồn tại. Nhìn vào những nỗ lực của ngành công nghiệp rượu bia, của quảng cáo, của các chuẩn mực xã hội nhằm thổi phồng cảm giác “sảng khoái”, “kết nối”, “giải tỏa” ấy lên, rồi tự hỏi bản thân một cách tỉnh táo: vui ở chỗ nào.</p>
+<p>Thứ ba, khi bạn đặt ly xuống, đừng làm điều đó với cảm giác kiểu “mình không được uống nữa” hay “mình bị cấm uống”. Hãy đặt ly xuống với một cảm giác hoàn toàn khác:
+“Thật tuyệt. Mình đã tự do rồi. Mình không còn là nô lệ của rượu bia nữa. Mình sẽ không bao giờ <em>phải</em> uống thứ này trong đời mình nữa.”</p>
+<p>Thứ tư, hãy nhận thức rằng trong vài ngày tới, sẽ có một “kẻ phá hoại” nhỏ bé xuất hiện trong bạn. Đôi khi nó chỉ biểu hiện dưới dạng một cảm giác mơ hồ: muốn làm một ly cho đỡ trống rỗng, cho đỡ căng thẳng. Người ta thường gọi đó là cơn thèm mang tính thể chất, như thể cơ thể đang cần cồn. Điều đó không đúng, và điều quan trọng là phải hiểu vì sao.</p>
+<p>Cơ thể bạn không hề cần cồn. Thứ đang “đòi hỏi” chỉ là bộ não đã quen với việc dùng rượu bia để vá vào một cảm giác thiếu hụt do chính rượu bia tạo ra. Cảm giác trống rỗng, bất an đó không phải là triệu chứng cần được chữa bằng rượu; nó là hậu quả trực tiếp của lần uống đầu tiên và được duy trì bởi mọi lần uống tiếp theo.</p>
+<p>Khi cảm giác “muốn uống một ly” xuất hiện, não bạn có hai cách diễn giải.
+Hoặc là bạn nhìn thẳng vào bản chất của nó và tự nhủ: “Tuyệt vời. Mình đã là người không uống rượu bia rồi.”
+Hoặc là bạn tin rằng mình đang bị tước đoạt một thứ gì đó, và tiếp tục sống phần đời còn lại trong trạng thái thèm muốn và chịu đựng.</p>
+<p>Hãy nghĩ xem lựa chọn thứ hai vô lý đến mức nào. Vừa nói rằng “mình không muốn uống nữa”, rồi lại dành cả đời để than thở “mình thèm uống”. Đó chính là cách những người dùng ý chí thường sống: không uống, nhưng không bao giờ tự do. Họ không tái nghiện, nhưng cũng không bao giờ thật sự thoát ra.</p>
+<p>Điểm mấu chốt không phải là chờ đợi một khoảnh khắc đặc biệt nào đó xảy ra trong tương lai. Điểm mấu chốt là nhận ra rằng ngay khi bạn đặt ly xuống lần cuối, mọi chuyện đã kết thúc. Nguồn cung đã bị cắt. Không có thế lực nào có thể ép bạn uống lại, trừ khi bạn tự gieo vào đầu mình sự nghi ngờ, chờ đợi hoặc cảm giác thiếu thốn.</p>
+<p>Sự nghi ngờ và chờ đợi chính là thứ khiến việc dừng uống trở nên khó khăn. Vì vậy, đừng bao giờ nghi ngờ quyết định của bạn. Nếu bạn nghi ngờ, bạn sẽ tự đặt mình vào thế “không ai thắng”: khổ sở vì thèm, nhưng không uống; hoặc uống để hết khổ, rồi lại mắc kẹt.</p>
+<p>Hãy tự hỏi: bạn thực sự muốn đạt được điều gì? Không phải là “không bao giờ uống nữa” trong khi lòng đầy tiếc nuối. Thứ bạn đang hướng tới là trạng thái của một người <em>không có nhu cầu uống</em>. Người không uống rượu bia không phải là người đang gồng mình kiềm chế; họ đơn giản là không muốn uống.</p>
+<p>Và trạng thái đó không nằm ở tương lai. Nó đã bắt đầu ngay khoảnh khắc bạn đặt ly xuống lần cuối. Bạn không cần chờ đợi để trở thành người không uống rượu bia. Bạn đã là người đó rồi.</p>
+<p>Bạn sẽ luôn là một người không uống rượu bia một cách nhẹ nhõm miễn là:</p>
+<p>Bạn không nghi ngờ quyết định của mình.
+Bạn không chờ đợi một trạng thái “hết thèm” nào đó trong tương lai.
+Bạn không cố ép mình <em>không nghĩ</em> đến rượu bia, vì chính sự cố gắng đó tạo ra ám ảnh.
+Bạn không tìm kiếm những hình thức thay thế để mô phỏng cảm giác say.
+Bạn nhìn những người vẫn còn nghiện đúng với bản chất của họ: bị mắc kẹt, chứ không phải đang tận hưởng.</p>
+<p>Dù là ngày tốt hay ngày tồi, đừng thay đổi cuộc sống của bạn chỉ vì bạn đã dừng uống. Bạn không hy sinh điều gì cả. Bạn không từ bỏ niềm vui. Ngược lại, bạn đã loại bỏ một căn bệnh. Khi thời gian trôi qua và cơ thể lẫn tâm trí hồi phục, những khoảnh khắc vui sẽ trọn vẹn hơn, và những lúc khó khăn sẽ bớt nặng nề hơn so với khi bạn còn phụ thuộc vào rượu bia.</p>
+<p>Bất cứ khi nào trong những ngày tới — hay trong phần đời còn lại — ý nghĩ về rượu bia xuất hiện, hãy nghĩ đơn giản như sau:</p>
+<p>“Tuyệt vời. Mình là người không uống rượu bia rồi.”</p>
+<p><strong>Một cảnh báo cuối cùng</strong></p>
+<p>Không một người nghiện nào, nếu được quay lại thời điểm trước khi họ bắt đầu, với hiểu biết hiện tại, lại chọn bắt đầu uống. Rất nhiều người đã dừng uống trong nhiều năm, sống hoàn toàn ổn, rồi lại rơi vào bẫy chỉ vì một lần “thử lại cho biết”. Họ thấy việc dừng uống dễ, và vì thế họ cũng thấy việc bắt đầu lại dễ không kém.</p>
+<p>Đừng rơi vào cái bẫy đó.</p>
+<p>Dù bạn đã không uống bao lâu, hãy đặt ra một quy tắc tuyệt đối: không uống rượu bia vì bất kỳ lý do gì. Lần “chỉ một ly” đó không mang lại cho bạn lợi ích nào cả. Nó không giải tỏa căng thẳng, không chữa được cơn khó chịu nào. Thứ duy nhất nó làm là khơi lại con đường cũ trong não bạn, và rồi một giọng nói nhỏ sẽ xuất hiện: “Thêm một ly nữa cũng không sao đâu.”</p>
+<p>Và thế là toàn bộ vòng lặp bắt đầu lại.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="27.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="29.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="27.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="29.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

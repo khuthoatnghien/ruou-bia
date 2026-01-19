@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 24: Liệu nó có khó hơn với tôi? - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chương-24-liệu-việc-dừng-uống-rượu-bia-có-khó-khăn-hơn-đối-với-tôi"><a class="header" href="#chương-24-liệu-việc-dừng-uống-rượu-bia-có-khó-khăn-hơn-đối-với-tôi">Chương 24: Liệu việc dừng uống rượu bia có khó khăn hơn đối với tôi?</a></h1>
+<p>Có rất nhiều yếu tố ảnh hưởng đến việc một người thấy <strong>dễ hay khó</strong> khi dừng uống rượu bia. Mỗi người có tính cách, công việc, hoàn cảnh sống và thời điểm khác nhau. Một số môi trường nghề nghiệp hoặc lối sống có thể khiến việc dừng uống có vẻ khó hơn, nhưng điều đó <strong>không phải là yếu tố quyết định</strong>. Khi sự tẩy não bị loại bỏ, hoàn cảnh bên ngoài không còn giữ vai trò then chốt nữa. Hãy xem một vài ví dụ.</p>
+<p>Trong một số trường hợp, việc dừng uống rượu bia dường như khó hơn đối với những người làm trong ngành y tế. Ta thường nghĩ bác sĩ hay nhân viên y tế sẽ dễ dừng hơn vì họ hiểu rõ tác hại của rượu bia. Thực tế, điều đó chỉ tạo ra <strong>lý do mạnh hơn để dừng</strong>, chứ không khiến việc dừng trở nên dễ dàng hơn. Nguyên nhân là:</p>
+<ol>
+<li>Việc thường xuyên tiếp xúc với các rủi ro sức khỏe tạo ra nỗi sợ, mà sợ hãi lại là một trạng thái khiến người ta có xu hướng tìm “chỗ dựa” để giải tỏa cơn khó chịu do cai nghiện.</li>
+<li>Công việc căng thẳng kéo dài khiến họ khó phân biệt đâu là áp lực công việc, đâu là cảm giác trống trải do thiếu rượu bia.</li>
+<li>Họ còn chịu thêm áp lực tâm lý vì cảm giác tội lỗi, cho rằng mình “phải làm gương”. Áp lực này làm tăng cảm giác thiếu thốn và hy sinh.</li>
+</ol>
+<p>Sau một ngày làm việc mệt mỏi, khi sự căng thẳng <em>tự nhiên</em> dịu xuống theo thời gian, nếu lúc đó họ uống rượu bia, tâm trí sẽ <strong>gán nhầm</strong> sự dễ chịu ấy cho rượu. Khi dừng uống, ký ức sai lệch này khiến rượu bia bỗng trở nên “quý giá”, và cơn vật vã dường như nặng nề hơn. Đây là kiểu nghiện hình thành một cách tình cờ, và nó xảy ra trong bất kỳ hoàn cảnh nào mà người ta bị buộc phải kiêng khem trong thời gian dài. Với phương pháp ý chí, người nghiện cảm thấy mình đang thiếu thốn và không còn được “thư giãn” như trước. Cảm giác <em>phải từ bỏ</em> ngày càng lớn. Nhưng khi bạn tháo bỏ được lớp tẩy não và thôi tin rằng rượu bia là nguồn giải tỏa, thì sự nghỉ ngơi và giấc ngủ vẫn đến một cách tự nhiên — ngay cả khi cơ thể đang trong giai đoạn điều chỉnh lại hệ thống dopamine.</p>
+<p>Một hoàn cảnh khác dễ dẫn đến tái nghiện là <strong>sự chán chường</strong>, đặc biệt khi đi kèm áp lực tinh thần. Sinh viên, cha mẹ đơn thân, hoặc những người làm công việc vừa căng thẳng vừa đơn điệu thường rơi vào trạng thái này. Nếu dừng bằng ý chí, họ dễ bị mắc kẹt trong những khoảng trống thời gian, liên tục nghĩ về thứ mình “đã mất”. Chính sự than vãn đó lại làm trầm cảm nặng thêm. Điều này hoàn toàn có thể tránh được nếu bạn có tâm thế đúng đắn. Đừng lo lắng khi bạn liên tục ý thức rằng mình đã dừng uống rượu bia. Hãy tận dụng những khoảnh khắc ấy để nhận ra niềm vui từ việc <strong>loại bỏ một thứ đang tàn phá bạn</strong>.</p>
+<p>Với một thái độ tích cực, những cơn khó chịu này sẽ biến thành những khoảnh khắc thú vị. Bất kỳ ai — không phân biệt tuổi tác, giới tính, trí thông minh hay nghề nghiệp — đều có thể thấy việc dừng uống rượu bia là dễ dàng và thậm chí dễ chịu, miễn là <strong>họ làm đúng và đủ những điều cần thiết</strong>.</p>
+<p>Có hai nguyên nhân chính dẫn đến thất bại. Nguyên nhân thứ nhất là các kích thích bên ngoài: quảng cáo rượu bia, mạng xã hội, tiệc tùng, những buổi tụ họp nơi người khác uống thoải mái. Đôi khi là cảm giác yếu lòng thoáng qua, hoặc ghen tị khi thấy người khác “vui vẻ” với ly rượu trên tay. Hãy dùng khoảnh khắc đó để tự nhắc mình rằng không tồn tại chuyện <em>“uống một chút cho vui”</em> hay <em>“uống cho đỡ buồn”</em>. Hãy vui vì bạn đã thoát khỏi xiềng xích tinh thần. Người đang nghiện rượu bia mới là người đáng thương, và chính họ mới cần sự cảm thông.</p>
+<p>Nguyên nhân thứ hai là <strong>một ngày tồi tệ</strong>. Hãy làm rõ ngay từ đầu rằng dù bạn có uống rượu hay không, cuộc sống vẫn có ngày tốt và ngày xấu. Không ai chỉ toàn thăng mà không có trầm. Vấn đề của phương pháp ý chí là khi gặp một ngày không như ý, người nghiện bắt đầu tiếc nuối rượu bia, và sự tiếc nuối đó khiến mọi thứ tệ hơn. Người không uống rượu bia được trang bị tốt hơn để đối mặt với căng thẳng, cả về thể chất lẫn tinh thần. Nếu bạn có một ngày tồi trong giai đoạn đầu, hãy chấp nhận nó. Nhắc mình rằng những ngày tồi vẫn tồn tại khi bạn còn uống, nếu không thì bạn đã chẳng có lý do để dừng. Thay vì tiếc nuối, hãy nhận ra: “Hôm nay không ổn lắm, nhưng rượu bia không giải quyết được gì. Ngày mai sẽ khác, và ít nhất tôi đã thoát khỏi sự lệ thuộc này.”</p>
+<p>Khi còn nghiện rượu bia, bạn buộc phải bỏ qua mặt tiêu cực của nó. Người nghiện hiếm khi thừa nhận mình đang rối loạn — họ chỉ nói “hơi mệt” hay “xuống tinh thần chút thôi”. Khi gặp rắc rối trong cuộc sống và ý nghĩ uống rượu thoáng qua, nó có làm bạn thực sự vui lên không? Không. Trớ trêu thay, khi bạn dừng uống, mọi khó khăn xảy ra sau đó lại bị bạn quy kết cho việc “cai rượu”.</p>
+<p>Nếu công việc căng thẳng, bạn sẽ nghĩ: “Lúc này mà có ly rượu thì tốt biết mấy.” Nghe có vẻ hợp lý, nhưng hãy nhớ: rượu bia <strong>không giải quyết vấn đề</strong>, và việc tiếc nuối nó chỉ là một hình thức tự trừng phạt. Bạn đang khốn khổ vì không uống, nhưng bạn sẽ còn khốn khổ hơn nếu uống. Bạn biết mình đã đưa ra quyết định đúng đắn khi dừng lại — vậy tại sao lại hành hạ bản thân bằng cách nghi ngờ chính quyết định đó?</p>
+<p>Hãy nhớ: giữ một tâm thế tích cực không phải là lời động viên sáo rỗng, mà là điều kiện thiết yếu để nhìn thẳng vào sự thật.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="23.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="25.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="23.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="25.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

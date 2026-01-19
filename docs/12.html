@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 12: Cẩn trọng với việc &quot;cắt giảm&quot; - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chương-12-cẩn-thận-với-việc-cắt-giảm"><a class="header" href="#chương-12-cẩn-thận-với-việc-cắt-giảm">Chương 12: Cẩn thận với việc cắt giảm</a></h1>
+<p>Nhiều người lệ thuộc rượu bia tìm đến việc <strong>cắt giảm</strong> như một bước đệm để dừng hẳn, hoặc như một nỗ lực nhằm “kiểm soát” con tiểu quỷ. Không ít người xung quanh cũng khuyên bạn nên uống ít lại, uống có chừng mực, hay “uống điều độ” để cải thiện tinh thần và sức khỏe. Việc sử dụng cắt giảm như một bước trung gian để dừng rượu bia là một <strong>sai lầm nghiêm trọng</strong>. Chính những nỗ lực cắt giảm này là thứ giữ người nghiện mắc kẹt với rượu bia trong suốt phần đời còn lại. Thông thường, ý định cắt giảm chỉ xuất hiện sau khi những lần cố gắng dừng hẳn đã thất bại. Sau vài giờ hoặc vài ngày kiêng khem, người nghiện bắt đầu tự nhủ những điều như:</p>
+<p>“<em>Tao không thể chịu nổi cảm giác đi ngủ mà không uống chút gì, nên từ giờ tao sẽ chỉ uống bốn ngày một lần. Nếu tao giữ được nhịp này, tao có thể duy trì hoặc giảm thêm.</em>”</p>
+<p>Một loạt hệ quả tồi tệ sẽ xảy ra:</p>
+<ol>
+<li>Họ mắc kẹt ở trạng thái tệ nhất: vẫn là người nghiện, đồng thời giữ cho con quỷ sống sót không chỉ trong cơ thể mà còn trong tâm trí.</li>
+<li>Họ bắt đầu mong cuộc sống trôi qua nhanh hơn để đến lần uống tiếp theo.</li>
+<li>Trước khi cắt giảm, bất cứ khi nào muốn uống, họ có thể uống ngay để làm dịu cơn bồn chồn. Bây giờ, ngoài những căng thẳng vốn có của cuộc sống, họ còn tự tạo thêm những cơn thèm kéo dài trong phần lớn thời gian, khiến họ khổ sở hơn nhiều.</li>
+<li>Trong lúc uống, họ hầu như không còn tận hưởng gì. Họ cũng không nhận ra rằng mình đang tiêu thụ một dạng kích thích siêu thường. Mọi thứ diễn ra máy móc. Lần uống duy nhất có vẻ “dễ chịu” là lần diễn ra sau một thời gian dài kiêng khem. Giờ đây, khi họ buộc phải chờ thêm một ngày, một tuần cho mỗi lần uống, họ lại cảm thấy lần uống đó “ngon” hơn. Thời gian chờ càng dài, cảm giác “tận hưởng” càng rõ — không phải vì rượu bia mang lại niềm vui, mà vì nó <strong>chấm dứt cảm giác bồn chồn do thèm muốn gây ra</strong>, dù là về thể chất hay tinh thần. Sự chịu đựng càng lâu, khoảnh khắc giải tỏa càng bị nhầm lẫn với khoái cảm.</li>
+</ol>
+<p>Khó khăn chính trong việc dừng rượu bia không nằm ở cơn lệ thuộc thần kinh. Phần này thực ra xử lý khá dễ. Người nghiện có thể dừng uống trong rất nhiều hoàn cảnh mà không gặp vấn đề gì — khi có tang gia, khi bận rộn công việc, khi phải tập trung cho một việc quan trọng. Họ có thể không uống mười ngày liền mà chẳng sao. Nhưng nếu phải không uống mười ngày trong khi <em>hoàn toàn có thể uống</em>, họ sẽ phát điên.</p>
+<p>Nhiều người lệ thuộc có thể dễ dàng kiêng rượu trong giờ làm việc. Họ có thể đi ngang quán nhậu, tiệc tùng mà không quá khó khăn. Họ cũng kiềm chế được khi phải ngủ tạm ở nhà người khác, khi có khách, hoặc khi ở trong những hoàn cảnh xã hội không cho phép uống. Ngay cả ở những buổi tiệc lớn hay môi trường đầy cám dỗ, hiếm khi xảy ra “bạo loạn”. Trên thực tế, người nghiện muốn dừng lại thường cảm thấy <strong>nhẹ nhõm</strong> khi có ai đó hoặc điều gì đó nói rằng họ <em>không thể</em> uống. Thậm chí, họ còn có một niềm vui thầm kín khi trải qua những khoảng thời gian dài không uống, vì điều đó mang lại hy vọng rằng có lẽ một ngày nào đó họ sẽ không còn muốn uống nữa.</p>
+<p>Vấn đề thực sự khi dừng rượu bia không nằm ở việc thiếu ý chí, mà ở <strong>sự tẩy não</strong>: một ảo tưởng về đặc quyền cho rằng rượu bia là chỗ dựa, là phần thưởng, là cách xả stress, và rằng cuộc sống sẽ không bao giờ trọn vẹn nếu thiếu nó. Việc cắt giảm khiến bạn trở nên bất an và khổ sở, đồng thời thuyết phục bạn rằng thứ quý giá nhất trên đời này chính là ly rượu tiếp theo mà bạn đang “bỏ lỡ”, rằng bạn sẽ không bao giờ hạnh phúc trở lại nếu không được uống.</p>
+<p>Thật trớ trêu. Người nghiện đã cố gắng cắt giảm, chịu đựng ảo tưởng rằng uống càng ít thì họ sẽ càng ít thèm. Trên thực tế, uống càng ít thì họ càng phải chịu đựng cơn vật vã lâu hơn, và càng “tận hưởng” khoảnh khắc được uống trở lại. Dần dần, họ nhận ra loại rượu quen thuộc không còn “đã” như trước nữa. Nhưng điều đó không hề ngăn cản họ: nếu rượu bia thực sự mang lại khoái lạc, thì một loại duy nhất đã đủ; không ai cần hết quán này đến quán khác, hết loại này đến loại khác.</p>
+<p>Nghe khó tin sao? Hãy tự hỏi: khoảnh khắc tệ nhất của sự tự chủ là gì? Là chờ đợi nhiều ngày không uống. Vậy khoảnh khắc “quý giá” nhất trong chế độ uống bốn ngày một lần là gì? Chính là khoảnh khắc được uống sau bốn ngày chờ đợi. Bạn có thực sự tin rằng mình uống vì hương vị hay niềm vui, hay hợp lý hơn là bạn đang <strong>giải tỏa cơn vật vã</strong>, kèm theo ảo tưởng rằng mình “xứng đáng” với nó?</p>
+<p>Loại bỏ sự tẩy não là bước then chốt để xóa tan mọi ảo tưởng về rượu bia, trước khi bạn thực sự chấm dứt ở ly cuối cùng. Nếu bạn chưa thật sự rũ bỏ niềm tin rằng mình “thích” rượu trước khi dứt khoát đặt ly xuống, bạn sẽ không bao giờ chứng minh được điều đó về sau mà không tái nghiện. Khi nhìn vào các loại rượu yêu thích, các quán quen, hãy tự hỏi: điều gì ở đây khiến bạn phải tự hào? Có lẽ bạn tin rằng chỉ một vài loại nhất định là “hợp gu”. Nếu vậy, tại sao bạn vẫn uống những loại khác? Vì thói quen? Vì phản xạ? Tại sao lại tiếp tục làm rối loạn hệ thần kinh của mình? Một tháng hay một năm trôi qua cũng chẳng có gì khác biệt — vậy tại sao một ly rượu lại được xem là đặc biệt?</p>
+<p>Bạn có thể tự kiểm chứng. Hãy uống lại loại rượu mà bạn đã uống tháng trước, rồi đặt nhắc nhở và thử lại chính loại đó sau một tháng không uống. Cảm giác gần như không thay đổi. Cái khiến nó “khác” không nằm ở rượu, mà ở hoàn cảnh: một buổi tối cô đơn, một ngày bị dồn ép, một cuộc gặp gỡ xã hội không như ý. Người nghiện không bao giờ có thể hoàn toàn dễ chịu chừng nào con tiểu quỷ còn chưa được “cho ăn”.</p>
+<p>Vậy sự “dễ chịu” nằm ở đâu? Đơn giản là ở việc <strong>chấm dứt sự khổ sở</strong> khi không được giải tỏa các triệu chứng cai. Sự khác biệt giữa uống và không uống, trong nhận thức của người nghiện, bị đánh tráo thành sự khác biệt giữa hạnh phúc và khốn khổ. Đó là lý do rượu bia có vẻ “tốt”. Những người vừa tỉnh dậy đã phải nghĩ đến việc uống đều cảm thấy khổ sở — dù cuối cùng có uống hay không.</p>
+<p>Cắt giảm không những không hiệu quả, mà còn là một hình thức tra tấn tinh vi. Nó không hiệu quả vì người nghiện hy vọng rằng bằng cách uống ít dần, họ sẽ bớt thèm. Nhưng đây không phải là thói quen đơn thuần; đây là <strong>nghiện</strong>. Bản chất của nghiện là muốn nhiều hơn, không phải ít hơn. Vì vậy, để cắt giảm, người nghiện buộc phải dựa vào ý chí và kỷ luật <strong>suốt phần đời còn lại</strong>. Cắt giảm đồng nghĩa với ý chí vĩnh viễn. Trong khi đó, đoạn tuyệt hoàn toàn lại dễ dàng và ít đau đớn hơn rất nhiều; hàng chục nghìn trường hợp cắt giảm đã thất bại.</p>
+<p>Vấn đề của việc dừng rượu bia không phải là lệ thuộc dopamine — phần này xử lý khá nhanh. Vấn đề là <strong>niềm tin sai lầm</strong> rằng rượu mang lại khoái lạc. Niềm tin này được gieo vào đầu ta từ trước khi bắt đầu uống, rồi được chính sự nghiện củng cố. Tất cả những gì cắt giảm làm được là củng cố thêm ngụy biện ấy, cho đến khi rượu bia chi phối toàn bộ đời sống và thuyết phục người nghiện rằng thứ quý giá nhất họ có chính là sự lệ thuộc của mình.</p>
+<p>Một số rất ít trường hợp “thành công” có được là nhờ giai đoạn cắt giảm ngắn, sau đó là dừng hẳn. Nhưng họ dừng được <strong>bất chấp</strong> việc cắt giảm, chứ không phải <strong>nhờ</strong> nó. Cắt giảm chỉ kéo dài đau khổ, biến những thất bại thành bằng chứng giả tạo rằng họ “nghiện suốt đời”. Điều đó thường đủ để đẩy họ quay lại với rượu như một chỗ dựa tinh thần — ít nhất là thêm một giai đoạn nữa, trước lần thử tiếp theo.</p>
+<p>Tuy vậy, cắt giảm cũng vô tình phơi bày sự vô ích của rượu bia: nó cho thấy rõ rằng uống không hề thú vị nếu không có cơn vật vã đi kèm. Bạn phải chịu đựng thì khoảnh khắc uống mới có vẻ “đáng giá”. Vì thế, các lựa chọn thực sự là:</p>
+<ol>
+<li>Cắt giảm suốt đời và tự tra tấn bản thân — điều không ai duy trì được.</li>
+<li>Tiếp tục tự hành hạ mình suốt đời — hoàn toàn vô nghĩa.</li>
+<li>Đối xử tử tế với chính mình và <strong>cắt bỏ hoàn toàn rượu bia</strong>.</li>
+</ol>
+<p>Một điểm khác mà cắt giảm phơi bày là: <strong>không tồn tại cái gọi là uống thỉnh thoảng</strong>. Rượu bia là một phản ứng dây chuyền, và nó sẽ kéo dài đến hết đời bạn trừ khi bạn chủ động phá vỡ nó.</p>
+<p>Hãy nhớ: <strong>càng cố cai bằng ý chí, bạn càng không thể cai</strong>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="11.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="13.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="11.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="13.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

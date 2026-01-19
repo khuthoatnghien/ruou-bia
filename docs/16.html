@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chương 16: Một thói quen xã hội? - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>Chương 16: Một thói quen xã hội?</strong></p>
+<p>Sức khỏe tinh thần và thể chất là những lý do chính khiến chúng ta <em>muốn</em> dừng uống rượu bia — và chúng vẫn luôn là những lý do mà bạn <em>nên</em> dừng lại. Không cần phải chờ các nghiên cứu mới nhất hay những tuyên bố chính thức để biết rằng rượu bia gây nghiện và có thể phá hủy cuộc sống. Cơ thể con người là một hệ thống tinh vi, và bất kỳ người nghiện nào cũng nhận ra rất sớm rằng chất này có thể vượt khỏi tầm kiểm soát và trở nên độc hại, ngay cả khi xã hội vẫn gọi nó là “bình thường”.</p>
+<p>Lý do duy nhất khiến rượu bia bén rễ sâu như vậy là vì nó trùng khớp hoàn hảo với những cơ chế tâm lý sẵn có của con người. Rượu dễ tiếp cận, được chấp nhận rộng rãi, rẻ, hợp pháp, và có mặt gần như mọi lúc, mọi nơi. Nó từng được xem là vô hại, giống như một thức uống giao tiếp đơn thuần, vào thời mà mức độ tiêu thụ còn thấp, nhịp sống chậm và áp lực tinh thần chưa bị dồn nén liên tục như ngày nay.</p>
+<p>Ngày nay, ngay cả những người uống nhiều cũng phải thừa nhận rằng rượu bia là một chất kích thích mạnh, có khả năng gây nghiện cao. Trước đây, hình ảnh một người đàn ông mạnh mẽ thường gắn với sự tỉnh táo, kiểm soát bản thân và khả năng đối mặt trực tiếp với cuộc sống. Trong các buổi tụ họp, người ta uống để giao lưu, không phải để trốn tránh. Nhưng với người nghiện rượu hiện đại, trật tự này đã đảo ngược. Rượu không còn là phần phụ của cuộc gặp gỡ xã hội; nó trở thành trung tâm. Người ta bắt đầu tin rằng mình <em>cần</em> rượu để thư giãn, để tự tin, để nói chuyện, thậm chí để “là chính mình”.</p>
+<p>Nhận thấy những tác động tiêu cực ngày càng rõ rệt của rượu bia, nhiều người bắt đầu tìm đến các cộng đồng, chia sẻ trải nghiệm, bàn bạc chiến lược và tìm lối thoát. Người trưởng thành ngày nay không muốn phụ thuộc vào một chất hóa học để cảm thấy ổn. Nhờ internet và mạng xã hội, ngày càng nhiều người nghiêm túc xem xét việc thoát khỏi sự lệ thuộc vào rượu. Rượu dần được nhìn nhận đúng bản chất của nó: một thứ không cần thiết, gây hại, và hoàn toàn không mang lại giá trị thật.</p>
+<p>Một xu hướng rõ rệt trong các cộng đồng này là sự nhấn mạnh ngày càng nhiều vào khía cạnh phản xã hội của rượu. Thời mà một người khoe khoang về khả năng uống nhiều, uống khỏe đang dần nhường chỗ cho nhận thức rằng đó là biểu hiện của sự lệ thuộc. Thay vì là dấu hiệu của sức mạnh, nó ngày càng bị nhìn nhận như một hình thức nô lệ tinh vi.</p>
+<p>Lý do duy nhất khiến con người tiếp tục uống, ngay cả khi đã được giáo dục đầy đủ, là vì họ đã từng thất bại khi cố dừng lại, hoặc vì họ sợ hãi. Từ đó nảy sinh vô số phương pháp: uống có kiểm soát, chỉ uống cuối tuần, chỉ uống khi có dịp, chỉ uống loại “nhẹ”, hoặc thay thế bằng nghi thức khác. Một số người thử những giai đoạn kiêng khem dài, một số khác áp dụng các nguyên tắc khắt khe về số lượng và thời điểm. Nhiều nỗ lực trong số đó thực chất là những bước “lùi để tiến”, và đôi khi mang lại cho người thử nghiệm một số lợi ích nhất định. Khi bắt đầu con đường không rượu, mỗi người sẽ tự tìm ra cách sống phù hợp hơn với mình. Nhưng điểm chung là: càng đi xa, họ càng nhận ra giá trị của việc không còn dùng rượu như một thú vui, một phần thưởng, hay một chỗ dựa cảm xúc.</p>
+<p>Nhiều cộng đồng trực tuyến nổi tiếng được lập ra với mục tiêu dừng uống hoàn toàn. Những cộng đồng này có ích ở chỗ giúp người ta không còn cảm thấy đơn độc, nhưng phần lớn vẫn dựa trên ý chí: đếm ngày, lập chuỗi thành tích, tự ép mình chịu đựng. Hệ quả thường thấy là sự ám ảnh, cảm giác thiếu thốn, và thương hại bản thân. Phần lớn sự tẩy não vẫn còn nguyên vẹn. Rồi đến một lúc nào đó, ai đó tái uống, hiệu ứng domino xảy ra, và nhiều người khác nhận ra rằng mình không phải là kẻ duy nhất “yếu đuối”. Dù vậy, những nỗ lực đó không hoàn toàn vô ích; chúng là những bước lùi giúp người ta thấy rõ hơn vấn đề, dù đi kèm rất nhiều tự hành hạ khi họ ngừng uống nhưng không ngừng được ham muốn.</p>
+<p>Phương pháp được trình bày trong cuốn sách này đi theo hướng ngược lại. Nó không yêu cầu bạn chịu đựng ham muốn sau khi đã dừng uống, mà tháo gỡ ham muốn đó ngay từ đầu, trước khi bạn đặt ly xuống. Khi nhu cầu và ảo tưởng bị dập tắt, việc không uống trở nên tự nhiên. Mỗi ngày trôi qua, ngày càng có nhiều người rời khỏi con tàu nghiện ngập, và những người còn mắc kẹt trên đó bắt đầu hoảng sợ khi nhận ra rằng họ có thể là những người cuối cùng.</p>
+<p>Đừng để điều đó xảy ra với bạn.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="14.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="17.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="14.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="17.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
