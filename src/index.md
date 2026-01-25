@@ -2,8 +2,11 @@
 
 Một dự án từ [Khu thoát nghiện](https://khuthoatnghien.github.io).
 
-Cuốn sách này là phiên bản [viết lại](https://sites.google.com/site/hackbookeasypeasy) của cuốn sách *Allen Carr's EasyWay to Smoking* cho rượu bia, hoàn toàn miễn phí và mã nguồn mở, phát hành dưới giấy phép CC-BY-SA.
+Cuốn sách này là phiên bản [viết lại](https://sites.google.com/site/hackbookeasypeasy) của cuốn sách *Allen Carr's EasyWay to Smoking* cho rượu bia, hoàn toàn miễn phí và mã nguồn mở, phát hành dưới giấy phép CC-BY-SA. Khả năng thành công của phương pháp này phụ thuộc vào việc bạn:
 
+<span style="font-size:xx-large;">KHÔNG BỎ QUA CHƯƠNG</span>
+
+Khi mở khoá mật mã, bạn sẽ cần phải nhập số theo đúng thứ tự. Với cơn nghiện thì điều đó cũng tương tự. Phương pháp trong cuốn sách này hoạt động hoàn toàn khác so với những phương pháp mà bạn đã thử, và cũng chính là phương pháp duy nhất thực sự hiệu quả.
 
 ## Nhắc nhỏ
 
@@ -63,4 +66,4 @@ Cuốn sách này sẽ chỉ ra rằng việc bỏ rượu bia có thể dễ d�
 
 Đừng đọc cuốn này như đọc một cuốn sách thông thường. Nó ngắn, và bạn có thể đọc xong trong vài giờ. Việc đánh dấu, ghi chú và đọc lại sẽ giúp bạn củng cố sự hiểu biết.
 
-Nhắc lại lần nữa: **KHÔNG BỎ QUA CHƯƠNG.**
+Nhắc lại là: <span style="font-size:larger;">**KHÔNG BỎ QUA CHƯƠNG**</span>
