@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html lang="vi" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ta đang từ bỏ điều gì? - Khu thoát nghiện - Rượu bia</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Khu thoát nghiện - Rượu bia</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ta-đang-từ-bỏ-điều-gì"><a class="header" href="#ta-đang-từ-bỏ-điều-gì">Ta đang từ bỏ điều gì?</a></h1>
+<p><strong>Không có gì cả.</strong></p>
+<p>Rượu bia khó rời bỏ không phải vì nó mang lại một giá trị nào, mà vì ta đã bị lập trình để tin rằng khi dừng lại, ta sẽ <strong>đánh mất</strong> thứ gì đó: niềm vui, sự thư giãn, một điểm tựa tinh thần. Ta sợ rằng những khoảnh khắc dễ chịu sẽ trở nên nhạt nhẽo. Ta sợ rằng mình sẽ không chịu nổi căng thẳng nếu không có rượu. Nói cách khác, đó là kết quả của quá trình tẩy não khiến rượu bia trông như một phần tự nhiên của đời sống người lớn, như một yếu tố cần thiết để sống “bình thường”. Và từ đó, việc từ bỏ nó bị diễn giải như một sự hy sinh, một sự thiếu hụt, một khoảng trống vĩnh viễn.</p>
+<p>Điều cần nhìn thẳng là: <strong>rượu bia không lấp đầy khoảng trống nào. Nó chính là thứ tạo ra khoảng trống.</strong></p>
+<p>Cơ thể con người không phải là một cỗ máy thô sơ. Dù bạn tin vào cách giải thích nào, thật khó phủ nhận rằng hệ thần kinh, cảm xúc và động lực của con người được tổ chức cực kỳ tinh vi. Chúng ta chưa tạo ra nổi một tế bào sống, nói gì đến một hệ thống có khả năng tự điều chỉnh trạng thái tinh thần và khoái cảm. Nếu con người cần đến chất gây say để sống cân bằng, thì toàn bộ thiết kế sinh học đã phải khác đi. Thực tế là cơ thể luôn phát ra tín hiệu cảnh báo khi bị xâm phạm, và cái giá của việc phớt lờ những tín hiệu đó là điều không thể tránh.</p>
+<h2 id="không-có-gì-phải-từ-bỏ"><a class="header" href="#không-có-gì-phải-từ-bỏ">Không có gì phải từ bỏ</a></h2>
+<p>Khi <strong>cơn thèm</strong> — nhu cầu hóa học nhỏ bé nhưng dai dẳng — được loại khỏi cơ thể, và <strong>những niềm tin sai lầm</strong> về rượu bia được gỡ bỏ khỏi tâm trí, thì nhu cầu “uống cho dễ chịu” hay “uống để thư giãn” cũng biến mất. Một trong những hiểu lầm lớn nhất về nghiện rượu là việc các triệu chứng của nó thường bị quy cho stress, áp lực sống, hay tính cách cá nhân. Người lệ thuộc không kém thông minh. Họ chỉ đang chịu đựng trạng thái thiếu hụt do chính rượu bia tạo ra.</p>
+<p>Họ bị mắc kẹt trong vòng lặp quen thuộc: không uống thì bồn chồn, trống rỗng; uống thì tạm dịu đi rồi lại tự khinh mình. Khi cơ thể bắt đầu lên tiếng — giấc ngủ rối loạn, mệt mỏi triền miên, cáu kỉnh, trí nhớ suy giảm — thì trong đầu cũng diễn ra một cuộc giằng co. Một bên muốn thừa nhận điều đang xảy ra, bên kia chỉ muốn quay đi và tiếp tục uống.</p>
+<p>Khoảnh khắc người lệ thuộc phải viện cớ để “làm một ngụm” đã phơi bày bản chất của nghiện. Họ không uống vì uống mang lại niềm vui. Họ uống vì <strong>không uống thì khó chịu</strong>.</p>
+<p>Nhiều người gắn những lần uống đầu tiên với cảm giác hưng phấn, sự kết nối, hay cảm giác được “xả”. Từ đó hình thành niềm tin rằng không có rượu thì không thể vui, không thể thả lỏng. Xung quanh, rượu bia còn được tô vẽ như chất xúc tác xã hội, như biểu tượng của sự trưởng thành, bản lĩnh hay chiều sâu cảm xúc. Thực tế thì hoàn toàn ngược lại. Rượu bia làm suy yếu dần khả năng tận hưởng tự nhiên vốn đã có sẵn.</p>
+<p>Bạn không đánh mất điều gì. Thứ thường bị bỏ sót khi nghĩ đến việc dừng rượu không chỉ là lợi ích thể chất, mà là sự thay đổi tinh thần đi kèm: sự tỉnh táo quay lại, cảm giác tự do khỏi vòng lệ thuộc, và sự biến mất của cảm giác xấu hổ âm ỉ cùng sự khinh miệt bản thân. Những thứ này không phải là phần thưởng mới. Chúng là trạng thái bình thường đã bị rượu bia che khuất.</p>
+<h2 id="trống-rỗng"><a class="header" href="#trống-rỗng">Trống rỗng</a></h2>
+<p>Hãy hình dung bạn có một vết loét đau đớn. Bạn được cho một loại thuốc bôi. Mỗi lần bôi, cơn đau biến mất ngay. Nhưng không lâu sau, vết loét quay lại, nặng hơn. Bạn tiếp tục bôi thuốc. Chu kỳ lặp lại, mỗi lần nhanh hơn, đau hơn. Cuối cùng, bạn không dám đi đâu nếu không mang theo thuốc. Bạn phụ thuộc hoàn toàn.</p>
+<p>Rồi bạn phát hiện ra rằng thuốc không chữa lành. Nó chỉ làm tê bề mặt, đẩy vấn đề xuống sâu hơn và khiến nó trầm trọng dần. Cách duy nhất để hồi phục là <strong>ngừng dùng thuốc</strong> và để cơ thể tự sửa chữa.</p>
+<p>Khi bạn hiểu điều đó, bạn không cần phải gồng mình để ngừng bôi thuốc. Bạn dừng lại vì bạn không còn muốn kéo dài vấn đề. Ngay cả khi quá trình hồi phục cần thời gian, mỗi ngày bớt đau đều là một bằng chứng rõ ràng.</p>
+<p>Đó chính là cơ chế của rượu bia.</p>
+<p>Tổn hại không chỉ nằm ở gan hay giấc ngủ. Nó là sự mệt mỏi tinh thần kéo dài, sự cùn mòn cảm xúc, trí nhớ giảm sút, thời gian bị nuốt chửng, những hành vi khiến bạn xấu hổ, và cảm giác lặng lẽ rằng mình đã mất quyền kiểm soát. Tất cả tạo thành một gánh nặng tâm lý nặng nề.</p>
+<p>Chính gánh nặng này khiến ta né tránh sự thật. Nó tạo ra lo âu và thúc ép phải uống để “ổn lại”. Người không lệ thuộc không trải nghiệm trạng thái này. Điều nặng nề nhất không phải là triệu chứng thể chất, mà là <strong>nỗi sợ</strong> — nỗi sợ rằng nếu không uống, mọi thứ sẽ sụp đổ. Và chính rượu bia đã gieo và nuôi lớn nỗi sợ đó, ngay từ lần đầu bạn dựa vào nó.</p>
+<p>Vẫn có những người tin rằng mình “uống có chừng mực”, rằng mình kiểm soát được. Niềm tin đó là một phần của quá trình tẩy não. Ngay cả khi đang khổ sở, họ vẫn bám vào rượu như một phao cứu sinh. Nhưng sự thật không thay đổi: thứ họ sợ mất không phải là nguồn sống, mà là chính nguyên nhân đã tạo ra cảm giác trống rỗng mà họ đang cố lấp đầy.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="06.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="08.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="06.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="08.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
